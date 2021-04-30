@@ -49,6 +49,12 @@ app.post('/cadastrar', (req, res)=>{
     }
 });
 
+app.get('/avaliar', (req, res)=>{
+    console.log(req.body.id);
+    res.send(req.body.id);
+    // // Film.findOne()
+})
+
 var server = app.listen(3003, ()=>{
     var host = server.address().address;
     var port = server.address().port;

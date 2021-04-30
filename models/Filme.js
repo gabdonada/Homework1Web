@@ -19,6 +19,18 @@ const Filme = db.sequelize.define('filmes',{
         type: db.Sequelize.STRING
     }, linkImg:{
         type: db.Sequelize.STRING
+    }, createdAt:{
+        type: db.Sequelize.DATE
+    }, updatedAt:{
+        type: db.Sequelize.DATE
+    }, createdAt:{
+        type: db.Sequelize.DATE
+    }, avaliacao:{
+        type: db.Sequelize.FLOAT
+    }, ID:{
+        type: db.Sequelize.INTEGER
+    }, numaval:{
+        type: db.Sequelize.INTEGER
     }
 })
 

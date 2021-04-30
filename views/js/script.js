@@ -6,7 +6,16 @@
 };
  */
 
+
+function executa(){
+    var test = document.getElementById("id").value;
+    window.location.href = "http://localhost:3003/avaliar/"+test;
+}
+
+
 //objeto filme
+
+
 function Filme (n, d, t, c, a, p, d, at){
     this.nome = n;
     this.descricao = d;

@@ -89,25 +89,48 @@ section .guarda{
   margin: 3rem;
 }
 
+
+
+section .guarda .organiza .item{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+section .guarda .organiza .item .detal .desc{
+  overflow: auto;
+}
+section .guarda .organiza .item .detal .desc p{
+  font-size: 80%;
+}
 section .guarda .organiza .item .detal{
-  margin: 3rem;
+  width: 30%;
+  margin: 1rem;
+  border-radius: 4px;
+  background: rgb(16, 16, 16);
+  color: white;
+  padding: 1rem;
+  height: 40rem;
+  
 }
 
 section .guarda .organiza .item{
   align-self: stretch;
 }
-
+.image{
+  height: 50%;
+  margin-bottom: 4%;
+}
 img {
   object-fit: fill;
-  border-radius: 50%;
-  border: 2px solid black;
+  border: 2px solid  rgba(228, 78, 32, 0.822);
   width: 100%;
   height: 100%;
 }
 
 section .detal:hover{ 
-margin: 0 40px;
-transform: scale(1.2);
+/* margin: 0 40px; */
+transform: scale(1.1);
 }
 
 #cadastroFilme {
