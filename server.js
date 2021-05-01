@@ -40,7 +40,8 @@ app.post('/cadastrar', (req, res)=>{
             produtoraFilme: req.body.produtoraFilme,
             diretorFilme: req.body.diretorFilme, 
             atoresFilme: req.body.atoresFilme,
-            linkImg: req.body.linkImg
+            linkImg: req.body.linkImg,
+            avaliacao: req.body.aval
         }).then(()=>{
             console.log("Cadastrado com sucesso!");
             res.redirect('/');
