@@ -8,9 +8,9 @@
 
 
 function executa(){
-    var test = document.getElementById("id").value;
-    window.location.href = "http://localhost:3003/avaliar/"+test;
+    document.getElementsByClassName("this.but").click();
 }
+
 
 
 //objeto filme

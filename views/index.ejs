@@ -13,26 +13,19 @@
     <main>
         <article>
             <header>
-                <a href="">Logo vai AQUI</a>
+              <img src="img/logo.png" id="logo">
                 <div class="container">
                         <a href="">Home</a>
                         <span onclick="cadastrarFilme()" href="">Cadastrar filme</span>
-                        <a href="">Contato</a>
-                        <a href="">Sobre</a>
+
                 </div>
                 <div class="pesquisa">
-                  <form action="http://localhost:3003/pesquisar" method="POST">
-                    <label for="dado">Ordenar por: </label>
-                    <select name="metodos" id="metodos" onchange="pesquisa()">
-                      <option value="">Selecione</option>
-                      <option value="AtoZ">De A a Z</option>
-                      <option value="ZtoA">De Z a A</option>
-                      <option value="postdatemenor">Menor data de Postagem</option>
-                      <option value="postdatemaior">Maior data de Postagem</option>
-                      <option value="palavra">Palavra Especifica</option>
-                    </select>
-                    <input type="text" id="info" name="info" placeholder="Adicione informação">
+                  <form action="http://localhost:3003/pesquisar" method="GET">
+                    <label for="dado">Procure por nome: </label>
+                    <input type="text" id="info" name="info" placeholder="Digite aqui" >
+                    <button type="submit">Pesquisar</button>
                   </form>
+                  
                 </div>
             </header>
 
@@ -58,6 +51,8 @@
                   <input type="text" id="atoresFilme" name="atoresFilme" placeholder="Atores do filme" required><br>
                   <label for="flinkImg">Link da imagem:</label><br>
                   <input type="text" id="linkImg" name="linkImg" placeholder="Link da Imagem" required><br>
+                  <label for="flinkImg">Avaliação:</label><br>
+                  <input type="text" id="aval" name="aval" placeholder="Avaliação de 1 a 5" required><br>
                   <button type="submit">Cadastrar Filme</button>
                   <!-- <button type="button" onclick="cadastrar();">Cadastrar filme</button> -->
                 </form>
@@ -75,15 +70,15 @@
                         <div class="desc">
                           <h3><%=film.nomeFilme%></h3> 
                           <p>Categoria: <%= film.categoriaFilme%></p>
-                          <p>Atores: <%= film.descricaoFilme %></p>
+                          <p>Descrição: <%= film.descricaoFilme %></p>
                         </div>
                         <div class="cont">
                           <div class="stars">
-                            <% if(film.avaliacao < 6) { %> 
+                            <% if(film.avaliacao >4) { %> 
                               <form action="http://localhost:3003/avaliar/" onclick="executa()" method="POST">
-                                <input class="star star-5" id="star-5" type="radio" name="star" value ="5" />
+                                <input class="star star-5" id="star-5" type="radio" name="star" value ="5" checked/>
                                 <label class="star star-5" for="star-5"></label>
-                                <input class="star star-4" id="star-4" type="radio" name="star" value ="4" />
+                                <input class="star star-4" id="star-4" type="radio" name="star" value ="4"  />
                                 <label class="star star-4" for="star-4"></label>
                                 <input class="star star-3" id="star-3" type="radio" name="star" value ="3" />
                                 <label class="star star-3" for="star-3"></label>
@@ -91,7 +86,77 @@
                                 <label class="star star-2" for="star-2"></label>
                                 <input class="star star-1" id="star-1"  type="radio" name="star" value ="1" />
                                 <label class="star star-1" for="star-1"></label>
-                                <input type="hidden" id="id" name="id" value= <%= film.id %> >
+                                <input type="hidden" id="idd" name="idd" value=<%= film.id %> >
+                                <input type="hidden" id="numaval" name="numaval" value= <%= film.numaval %> >    
+                                <button type="hidden" id="but">Submit</button>                            
+                              </form>
+                            <%}%>
+                            <% if(film.avaliacao >3 && film.avaliacao < 5) { %> 
+                              <form action="http://localhost:3003/avaliar/" onclick="executa()" method="POST">
+                                <input class="star star-5" id="star-5" type="radio" name="star" value ="5"/>
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" value ="4" checked/>
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" value ="3" />
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" value ="2" />
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1"  type="radio" name="star" value ="1" />
+                                <label class="star star-1" for="star-1"></label>
+                                <input type="hidden" id="idd" name="idd" value=<%= film.id %> >
+                                <input type="hidden" id="numaval" name="numaval" value= <%= film.numaval %> >    
+                                <button type="hidden" class="but">Submit</button>                            
+                              </form>
+                            <%}%>
+                            <% if(film.avaliacao >2 && film.avaliacao < 4) { %> 
+                              <form action="http://localhost:3003/avaliar/" onclick="executa()" method="POST">
+                                <input class="star star-5" id="star-5" type="radio" name="star" value ="5"/>
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" value ="4" />
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" value ="3" checked/>
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" value ="2" />
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1"  type="radio" name="star" value ="1" />
+                                <label class="star star-1" for="star-1"></label>
+                                <input type="hidden" id="idd" name="idd" value=<%= film.id %> >
+                                <input type="hidden" id="numaval" name="numaval" value= <%= film.numaval %> >    
+                                <button type="hidden" class="but">Submit</button>                            
+                              </form>
+                            <%}%>
+                            <% if(film.avaliacao >1 && film.avaliacao < 3) { %> 
+                              <form action="http://localhost:3003/avaliar/" onclick="executa()" method="POST">
+                                <input class="star star-5" id="star-5" type="radio" name="star" value ="5"/>
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" value ="4" />
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" value ="3" />
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" value ="2" checked/>
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1"  type="radio" name="star" value ="1" />
+                                <label class="star star-1" for="star-1"></label>
+                                <input type="hidden" id="idd" name="idd" value=<%= film.id %> >
+                                <input type="hidden" id="numaval" name="numaval" value= <%= film.numaval %> >    
+                                <button type="hidden" class="but">Submit</button>                            
+                              </form>
+                            <%}%>
+                            <% if(film.avaliacao < 2) { %> 
+                              <form action="http://localhost:3003/avaliar/" onclick="executa()" method="POST">
+                                <input class="star star-5" id="star-5" type="radio" name="star" value ="5"/>
+                                <label class="star star-5" for="star-5"></label>
+                                <input class="star star-4" id="star-4" type="radio" name="star" value ="4" />
+                                <label class="star star-4" for="star-4"></label>
+                                <input class="star star-3" id="star-3" type="radio" name="star" value ="3" />
+                                <label class="star star-3" for="star-3"></label>
+                                <input class="star star-2" id="star-2" type="radio" name="star" value ="2" />
+                                <label class="star star-2" for="star-2"></label>
+                                <input class="star star-1" id="star-1"  type="radio" name="star" value ="1" checked/>
+                                <label class="star star-1" for="star-1"></label>
+                                <input type="hidden" id="idd" name="idd" value=<%= film.id %> >
+                                <input type="hidden" id="numaval" name="numaval" value= <%= film.numaval %> >    
+                                <button type="hidden" class="but"> Submit</button>                            
                               </form>
                             <%}%>
                           </div>

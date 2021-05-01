@@ -89,7 +89,12 @@ section .guarda{
   margin: 3rem;
 }
 
-
+#logo {
+  height: 50px;
+  width: auto;
+  border: none;
+  padding: 8px;
+}
 
 section .guarda .organiza .item{
   display: flex;
@@ -101,6 +106,7 @@ section .guarda .organiza .item .detal .desc{
   overflow: auto;
 }
 section .guarda .organiza .item .detal .desc p{
+  padding: 3%;
   font-size: 80%;
 }
 section .guarda .organiza .item .detal{
